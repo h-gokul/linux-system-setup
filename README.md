@@ -33,3 +33,17 @@ Yaru icons : https://www.gnome-look.org/p/1331947/
 # Set up nvidia driver + cuda 10.0 + cudnn 7.6 For CMSC733 (tf-1.13)
 https://itectec.com/ubuntu/ubuntu-install-nvidia-drivers-with-cuda-10-0-ubuntu-18-04-and-tensorflow-gpu-1-13/
 
+# To install jupyterlab properly, do this:
+
+`sudo -H pip3 install jupyterlab`
+
+
+add jupyter lab path to ENVIRONMENT as follows
+- Type
+`gedit ~/.bashrc`
+
+this opens the  `~/.bashrc`
+Now, add this to the last line
+`PATH=$PATH:/home/gokul/.local/bin/jupyter-lab`
+Note: gokul is the username. change accordingly
+

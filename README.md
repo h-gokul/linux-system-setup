@@ -43,6 +43,8 @@ sudo cp -P cudnn-*-archive/lib/libcudnn* /usr/local/cuda/lib64
 sudo chmod a+r /usr/local/cuda/include/cudnn*.h /usr/local/cuda/lib64/libcudnn*
 ```
   
+#### Testing cudnn installation
+refer this: https://askubuntu.com/questions/1215087/testing-cudnn-7-6-5-install-on-ubuntu-18-04
   
   ------------------------------------------
 

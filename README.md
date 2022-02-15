@@ -11,9 +11,29 @@ Latest - [install-cuda-11-2-cudnn-8-1-0-and-python-3-9-on-rtx3090](https://mediu
 
 [cuda-9.0](https://gist.github.com/Brainiarc7/470a57e5c9fc9ab9f9c4e042d5941a40)
 
-### For TF 1.13 
-Set up nvidia driver + cuda 10.0 + cudnn 7.6 For CMSC733 (tf-1.13)
-https://itectec.com/ubuntu/ubuntu-install-nvidia-drivers-with-cuda-10-0-ubuntu-18-04-and-tensorflow-gpu-1-13/
+For CMSC733 (tf-1.13), set up nvidia driver + cuda 10.0 + cudnn 7.6  [using this](https://itectec.com/ubuntu/ubuntu-install-nvidia-drivers-with-cuda-10-0-ubuntu-18-04-and-tensorflow-gpu-1-13/)
+
+
+## Installing CUDNN
+obtained from 
+
+In the following sections:
+- your CUDA directory path is referred to as /usr/local/cuda/
+- your cuDNN download path is referred to as <cudnnpath>
+
+### Tar File Installation
+
+  Before issuing the following commands, you'll need to replace X.Y and v8.x.x.x with your specific CUDA and cuDNN versions and package date.
+Procedure
+- Navigate to your <cudnnpath> directory containing the cuDNN tar file.
+- Unzip the cuDNN package.
+$ tar -xvf cudnn-linux-x86_64-8.x.x.x_cudaX.Y-archive.tar.xz $
+Copy the following files into the CUDA toolkit directory.
+$ sudo cp cudnn-*-archive/include/cudnn*.h /usr/local/cuda/include $
+$ sudo cp -P cudnn-*-archive/lib/libcudnn* /usr/local/cuda/lib64 $
+$ sudo chmod a+r /usr/local/cuda/include/cudnn*.h /usr/local/cuda/lib64/libcudnn*$
+  
+  ------------------------------------------
 
 # Jupyterlab
 

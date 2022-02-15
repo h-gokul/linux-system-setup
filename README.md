@@ -1,4 +1,5 @@
-# system-setup-liinks
+# system-setup
+
 References for setting up my ubuntu OS
 
 # Install Linux

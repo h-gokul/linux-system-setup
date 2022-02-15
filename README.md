@@ -6,7 +6,10 @@ References for setting up my ubuntu OS
 https://opensource.com/article/18/5/dual-boot-linux
 
 # Install CUDA, CUDNN, Pytorch etc
-https://medium.com/analytics-vidhya/install-cuda-11-2-cudnn-8-1-0-and-python-3-9-on-rtx3090-for-deep-learning-fcf96c95f7a1
+
+Latest - [install-cuda-11-2-cudnn-8-1-0-and-python-3-9-on-rtx3090](https://medium.com/analytics-vidhya/install-cuda-11-2-cudnn-8-1-0-and-python-3-9-on-rtx3090-for-deep-learning-fcf96c95f7a1)
+
+[cuda-9.0](https://gist.github.com/Brainiarc7/470a57e5c9fc9ab9f9c4e042d5941a40)
 
 ### For TF 1.13 
 Set up nvidia driver + cuda 10.0 + cudnn 7.6 For CMSC733 (tf-1.13)

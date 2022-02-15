@@ -27,3 +27,8 @@ Suggested:
 Mcata theme: https://www.gnome-look.org/p/1381832/
 Yaru icons : https://www.gnome-look.org/p/1331947/
 
+
+
+# Set up nvidia driver + cuda 10.0 + cudnn 7.6 For CMSC733 (tf-1.13)
+https://itectec.com/ubuntu/ubuntu-install-nvidia-drivers-with-cuda-10-0-ubuntu-18-04-and-tensorflow-gpu-1-13/
+

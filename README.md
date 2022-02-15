@@ -56,5 +56,8 @@ To install rogauracore to control backlight in linux:
 
 https://github.com/wroberts/rogauracore
 
+# Connect to Eduroam
+For linux, download run file from this link
+https://cloud.securew2.com/public/76190/Get_connected_to_eduroam/
 
 

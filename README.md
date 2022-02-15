@@ -15,7 +15,8 @@ For CMSC733 (we need tf-1.13), set up nvidia driver + cuda 10.0 + cudnn 7.6  [us
 
 
 ## General instructions to install CUDNN
-obtained from 
+obtained from nvidia website
+
 
 In the following sections:
 - your CUDA directory path is referred to as /usr/local/cuda/

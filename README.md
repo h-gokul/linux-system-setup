@@ -49,6 +49,10 @@ refer this: https://askubuntu.com/questions/1215087/testing-cudnn-7-6-5-install-
   
   ------------------------------------------
 
+  [Learn about python paths](https://leemendelowitz.github.io/blog/how-does-python-find-packages.html) 
+  
+  
+ ------------------------------------------
 # Jupyterlab
 
 To install  properly, do this:

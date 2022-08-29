@@ -3,7 +3,15 @@
 References for setting up my ubuntu OS
 
 ### Create windows live USB in linux
-https://itsfoss.com/bootable-windows-usb-linux/
+- Clear any partition in the USB drive using the Disks tool in Linux. Also note down device name of usb drive. (say, `/dev/sda`)
+- Download the latest release of [WoeUSB](https://github.com/WoeUSB/WoeUSB/releases/) 
+- Download .iso file from windows website.
+- run   ```sudo ./woeusb-5.2.4.bash -d <Win10.iso> <device name>``` 
+
+Example:
+```
+sudo ./woeusb-5.2.4.bash -d Win10_21H2_English_x64.iso /dev/sda
+```
 
 # Install Linux
 https://opensource.com/article/18/5/dual-boot-linux

@@ -2,6 +2,9 @@
 
 References for setting up my ubuntu OS
 
+### Create windows live USB in linux
+https://itsfoss.com/bootable-windows-usb-linux/
+
 # Install Linux
 https://opensource.com/article/18/5/dual-boot-linux
 

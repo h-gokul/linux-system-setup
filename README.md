@@ -20,13 +20,55 @@ https://opensource.com/article/18/5/dual-boot-linux
 ------------------------------------------
 # Install CUDA, CUDNN, Pytorch etc
 
+#### Quick Tutorials:
 - To install [cuda11](https://medium.com/analytics-vidhya/install-cuda-11-2-cudnn-8-1-0-and-python-3-9-on-rtx3090-for-deep-learning-fcf96c95f7a1)
 - To install [cuda-9.0](https://gist.github.com/Brainiarc7/470a57e5c9fc9ab9f9c4e042d5941a40)
 - For CMSC733 (we need tf-1.13), set up nvidia driver + cuda 10.0 + cudnn 7.6  [using this](https://itectec.com/ubuntu/ubuntu-install-nvidia-drivers-with-cuda-10-0-ubuntu-18-04-and-tensorflow-gpu-1-13/)
 
-### General instructions to install CUDNN
-obtained from nvidia website
+## CUDA installation:
+NOTE: This tutorial could be specific to cuda 11.6 installation. modify file paths and versions accordingly.
+Usually, the nvidia driver is already installed in case of Ubuntu. Check `Additional Drivers` in `Software & Updates` if NVIDIA drivers are selected.  
 
+- Download the cuda tool-kit from the [nvidia website]([https://developer.nvidia.com/search?page=1&sort=relevance&term=cuda%20toolkit](https://developer.nvidia.com/cuda-toolkit-archive))
+- run `uname -m` to check architecture version of your PC. 
+- Select your linux distribution and version and download the runfile.
+
+Example: 
+```
+wget https://developer.download.nvidia.com/compute/cuda/11.6.0/local_installers/cuda_11.6.0_510.39.01_linux.run
+sudo sh cuda_11.6.0_510.39.01_linux.run
+```
+This should install cuda successfully. 
+
+### Verify Cuda Installation: 
+Run `nvcc -V` to check the version of cuda. If nvcc is not installed, you might have not added the path variables in  `~/.bashrc`. 
+
+Recall that, at the end of cuda installation, there must be a message saying 
+Please make sure that
+ -   PATH includes /usr/local/cuda-11.6/bin
+ -   LD_LIBRARY_PATH includes /usr/local/cuda-11.6/lib64, or, add /usr/local/cuda-11.6/lib64 to /etc/ld.so.conf and run ldconfig as root
+
+Add the PATH variables as [referred here](https://askubuntu.com/questions/885610/nvcc-version-command-says-nvcc-is-not-installed).
+ie, add the below lines.
+```
+ export PATH="/usr/local/cuda-11.6/bin:$PATH"
+ export LD_LIBRARY_PATH="/usr/local/cuda-11.6/lib64:$LD_LIBRARY_PATH"
+```
+now nvcc-V should display something like this:
+
+```
+nvcc: NVIDIA (R) Cuda compiler driver
+Copyright (c) 2005-2021 NVIDIA Corporation
+Built on Fri_Dec_17_18:16:03_PST_2021
+Cuda compilation tools, release 11.6, V11.6.55
+Build cuda_11.6.r11.6/compiler.30794723_0
+```
+
+- To uninstall the CUDA Toolkit, run cuda-uninstaller in `/usr/local/cuda-11.6/bin`
+
+
+### CUDNN installation.
+obtained from nvidia website
 
 In the following sections:
 - your CUDA directory path is referred to as /usr/local/cuda/

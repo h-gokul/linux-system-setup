@@ -11,14 +11,16 @@ Example:
 ```
 sudo ./woeusb-5.2.4.bash -d Win10_21H2_English_x64.iso /dev/sda
 ```
-------------------------------------------
+
 
 # Install Linux
 Follow the steps in the link to dual boot install linux.
 https://opensource.com/article/18/5/dual-boot-linux
 
-------------------------------------------
+
 # Install CUDA, CUDNN, Pytorch etc
+
+You can skip all of these and run the `./cuda11.6_setup.sh` to get going.
 
 #### Quick Tutorials:
 - To install [cuda11](https://medium.com/analytics-vidhya/install-cuda-11-2-cudnn-8-1-0-and-python-3-9-on-rtx3090-for-deep-learning-fcf96c95f7a1)
@@ -40,21 +42,23 @@ sudo sh cuda_11.6.0_510.39.01_linux.run
 ```
 This should install cuda successfully. 
 
-### Verify Cuda Installation: 
+#### Verify Cuda Installation: 
+
 Run `nvcc -V` to check the version of cuda. If nvcc is not installed, you might have not added the path variables in  `~/.bashrc`. 
 
 Recall that, at the end of cuda installation, there must be a message saying 
+```
 Please make sure that
  -   PATH includes /usr/local/cuda-11.6/bin
  -   LD_LIBRARY_PATH includes /usr/local/cuda-11.6/lib64, or, add /usr/local/cuda-11.6/lib64 to /etc/ld.so.conf and run ldconfig as root
-
+```
 Add the PATH variables as [referred here](https://askubuntu.com/questions/885610/nvcc-version-command-says-nvcc-is-not-installed).
 ie, add the below lines.
 ```
  export PATH="/usr/local/cuda-11.6/bin:$PATH"
  export LD_LIBRARY_PATH="/usr/local/cuda-11.6/lib64:$LD_LIBRARY_PATH"
 ```
-now nvcc-V should display something like this:
+now `nvcc-V` should display something like this:
 
 ```
 nvcc: NVIDIA (R) Cuda compiler driver
@@ -66,46 +70,50 @@ Build cuda_11.6.r11.6/compiler.30794723_0
 
 - To uninstall the CUDA Toolkit, run cuda-uninstaller in `/usr/local/cuda-11.6/bin`
 
+Also Refer [here](https://xcat-docs.readthedocs.io/en/stable/advanced/gpu/nvidia/verify_cuda_install.html) for more details.
 
-### CUDNN installation.
-obtained from nvidia website
+
+## CUDNN installation.
+
+[Login to Nvidia website](https://developer.nvidia.com/rdp/cudnn-download) and download your preferred version of cuDNN's Local installer. In my case, it was [cudnn-linux-x86_64-8.5.0.96_cuda11-archive.tar.xz](https://developer.nvidia.com/compute/cudnn/secure/8.5.0/local_installers/11.7/cudnn-linux-x86_64-8.5.0.96_cuda11-archive.tar.xz)
 
 In the following sections:
-- your CUDA directory path is referred to as /usr/local/cuda/
-- your cuDNN download path is referred to as <cudnnpath>
+- your CUDA directory path is referred to default path `/usr/local/cuda/`
+- your cuDNN download path is referred to as `<cudnnpath>`
 
 ### 1) Tar File Installation
 
   Before issuing the following commands, you'll need to replace X.Y and v8.x.x.x with your specific CUDA and cuDNN versions and package date.
 Procedure
-- Navigate to your <cudnnpath> directory containing the cuDNN tar file.
+- Navigate to your `<cudnnpath>` directory containing the cuDNN tar file.
 - Unzip the cuDNN package.
-$ tar -xvf cudnn-linux-x86_64-8.x.x.x_cudaX.Y-archive.tar.xz $
+```
+tar -xvf cudnn-linux-x86_64-8.x.x.x_cudaX.Y-archive.tar.xz
+```
+
 Copy the following files into the CUDA toolkit directory.
   
-  
 ```
- sudo cp cudnn-*-archive/include/cudnn*.h /usr/local/cuda/include 
-```
-  
-```
+sudo cp cudnn-*-archive/include/cudnn*.h /usr/local/cuda/include 
 sudo cp -P cudnn-*-archive/lib/libcudnn* /usr/local/cuda/lib64 
-```
-
-```
 sudo chmod a+r /usr/local/cuda/include/cudnn*.h /usr/local/cuda/lib64/libcudnn*
 ```
-  
-#### 2) Verify Cuda Installation
-Refer: https://xcat-docs.readthedocs.io/en/stable/advanced/gpu/nvidia/verify_cuda_install.html
-
-#### 3) Testing cudnn installation
+    
+#### 2) Testing cudnn installation
 refer this: https://askubuntu.com/questions/1215087/testing-cudnn-7-6-5-install-on-ubuntu-18-04
   
-  
 ------------------------------------------
- NOTE: [To Learn about python paths](https://leemendelowitz.github.io/blog/how-does-python-find-packages.html) 
-  
+NOTE: [To Learn about python paths](https://leemendelowitz.github.io/blog/how-does-python-find-packages.html) 
+
+### Install pytorch
+Refer the [website](https://pytorch.org/) for installation info.
+
+To install `pytorch` and `pytorch3d`
+```
+pip3 install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu116
+pip3 install pytorch3d
+```
+
 ------------------------------------------
 # Jupyterlab
 
@@ -146,10 +154,34 @@ Yaru icons : https://www.gnome-look.org/p/1331947/
 
 # Backlight Keyboard
 To install rogauracore to control backlight in linux:
-
 https://github.com/wroberts/rogauracore
+
+```
+### Install dependancies.
+sudo apt install libusb-1.0-0 libusb-1.0-0-dev
+sudo apt install build-essential
+
+### clone repository and install
+git clone https://github.com/wroberts/rogauracore.git
+cd rogauracore
+autoreconf -i
+./configure
+make
+sudo make install
+```
+
 ------------------------------------------
 
 # Connect to UMD Eduroam 
 For linux, download run file from this link
 https://cloud.securew2.com/public/76190/Get_connected_to_eduroam/
+
+Instructions:
+
+```
+chmod +x sh SecureW2_JoinNow.run
+wget https://cloud.securew2.com/public/76190/Get_connected_to_eduroam/?run
+sh SecureW2_JoinNow.run
+sudo rm SecureW2_JoinNow.run
+```
+

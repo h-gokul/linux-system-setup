@@ -1,0 +1,12 @@
+numpy 
+matplotlib 
+scipy 
+opencv-python
+sklearn
+tqdm
+path
+imageio
+pandas
+scikit-image
+tensorboardX
+python-dateutil>=2.8.1

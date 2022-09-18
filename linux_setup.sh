@@ -34,3 +34,7 @@ chmod +x rogauracore_setup.sh
 ./rogauracore_setup.sh
 cd $PWD
 
+
+echo "*** Installing Shutter snipping tool ***"
+sudo add-apt-repository ppa:shutter/ppa
+sudo apt install shutter

@@ -24,6 +24,18 @@ chmod +x install_ceres.sh
 sudo ./install_ceres.sh
 cd $PWD
 
+echo "*** Installing Eigen ***"
+sudo apt update  # not necessary since Bionic
+sudo apt-get install libeigen3-dev
+
+echo "*** Installing GTSAM library ***"
+# Add PPA
+sudo add-apt-repository ppa:borglab/gtsam-release-4.0
+sudo apt update  # not necessary since Bionic
+# Install:
+sudo apt install libgtsam-dev libgtsam-unstable-dev
+
+
 echo "*** Installing docker, nvidia toolkit ***"
 chmod +x docker_setup.sh
 ./docker_setup.sh
